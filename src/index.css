@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Clash Display", "Helvetica Neue", sans-serif;
+  --font-sans: "Satoshi", "Helvetica Neue", sans-serif;
+
+  --color-paper: #f6f5f0;
+  --color-card: #ecebe2;
+  --color-ink: #131311;
+  --color-muted: #6f6e66;
+  --color-line: #e1e0d6;
+  --color-accent: #ff5310;
+  --color-accent-dark: #e04100;
+
+  --animate-marquee: marquee 36s linear infinite;
+  --animate-marquee-slow: marquee 60s linear infinite;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-paper);
+}
+::-webkit-scrollbar-thumb {
+  background: #c9c8be;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-muted);
+}
+
+/* Big display headline default. Clash Display reads best at semibold */
+.headline {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+}
+
+/* Pill buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  border-radius: 9999px;
+  padding: 1rem 1.9rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+.btn-dark {
+  background: var(--color-ink);
+  color: #fff;
+}
+.btn-dark:hover {
+  background: var(--color-accent);
+}
+.btn-outline {
+  border: 1px solid var(--color-ink);
+  color: var(--color-ink);
+}
+.btn-outline:hover {
+  background: var(--color-ink);
+  color: #fff;
+}
+.btn:active {
+  transform: scale(0.97);
+}
