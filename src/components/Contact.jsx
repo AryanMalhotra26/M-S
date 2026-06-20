@@ -4,7 +4,7 @@ import { BUSINESS, CATEGORIES, whatsappLink } from '../data'
 import { PhoneIcon, WhatsAppIcon, PinIcon } from './Icons'
 
 const inputClass =
-  'w-full rounded-xl border border-white/10 bg-white/5 px-5 py-3.5 text-[15px] text-white placeholder:text-white/35 outline-none transition-all duration-300 focus:border-accent/70 focus:bg-white/10 focus:shadow-[0_0_0_3px_rgba(255,83,16,0.15)]'
+  'w-full rounded-xl border border-white/15 bg-white/5 px-5 py-3.5 text-[15px] text-white placeholder:text-white/50 outline-none transition-all duration-300 focus:border-accent/70 focus:bg-white/10 focus:shadow-[0_0_0_3px_rgba(255,83,16,0.15)]'
 
 const ease = [0.22, 0.61, 0.36, 1]
 
@@ -52,7 +52,7 @@ export default function Contact() {
           <div className="relative grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
             {/* Left: talk to us */}
             <div className="flex flex-col">
-              <span className="inline-flex items-center gap-2.5 text-[12px] font-semibold uppercase tracking-[0.18em] text-white/40">
+              <span className="inline-flex items-center gap-2.5 text-[12px] font-semibold uppercase tracking-[0.18em] text-white/60">
                 <span className="h-1.5 w-1.5 rounded-full bg-accent" />
                 Contact
               </span>
@@ -74,7 +74,7 @@ export default function Contact() {
                   <PhoneIcon className="h-5 w-5" />
                 </span>
                 <span>
-                  <span className="block text-[11px] font-semibold uppercase tracking-[0.2em] text-white/40">
+                  <span className="block text-[11px] font-semibold uppercase tracking-[0.2em] text-white/60">
                     Call us directly
                   </span>
                   <span className="font-display text-2xl font-semibold tracking-tight text-white transition-colors duration-300 group-hover:text-accent sm:text-3xl">
@@ -116,19 +116,27 @@ export default function Contact() {
               <h3 className="font-display text-xl font-semibold tracking-tight text-white">
                 Send an enquiry
               </h3>
-              <p className="mt-1 text-[14px] text-white/50">
+              <p className="mt-1 text-[14px] text-white/60">
                 Fill this in and it opens straight in WhatsApp. We reply fast.
               </p>
 
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                <label htmlFor="cf-name" className="sr-only">
+                  Your name
+                </label>
                 <input
+                  id="cf-name"
                   required
                   value={form.name}
                   onChange={set('name')}
                   placeholder="Your name *"
                   className={inputClass}
                 />
+                <label htmlFor="cf-phone" className="sr-only">
+                  Phone number
+                </label>
                 <input
+                  id="cf-phone"
                   required
                   type="tel"
                   value={form.phone}
@@ -136,18 +144,26 @@ export default function Contact() {
                   placeholder="Phone number *"
                   className={inputClass}
                 />
+                <label htmlFor="cf-company" className="sr-only">
+                  Company or firm
+                </label>
                 <input
+                  id="cf-company"
                   value={form.company}
                   onChange={set('company')}
                   placeholder="Company / firm"
                   className={inputClass}
                 />
+                <label htmlFor="cf-category" className="sr-only">
+                  Tyre category
+                </label>
                 <select
+                  id="cf-category"
                   value={form.category}
                   onChange={set('category')}
-                  className={`${inputClass} appearance-none ${form.category ? '' : 'text-white/35'}`}
+                  className={`${inputClass} appearance-none ${form.category ? '' : 'text-white/50'}`}
                 >
-                  <option value="" disabled className="bg-ink text-white/60">
+                  <option value="" disabled className="bg-ink text-white/70">
                     Tyre category
                   </option>
                   {CATEGORIES.map((c) => (
@@ -156,7 +172,11 @@ export default function Contact() {
                     </option>
                   ))}
                 </select>
+                <label htmlFor="cf-requirement" className="sr-only">
+                  Your requirement
+                </label>
                 <textarea
+                  id="cf-requirement"
                   required
                   rows={5}
                   value={form.requirement}
@@ -173,7 +193,7 @@ export default function Contact() {
                 <WhatsAppIcon className="h-4 w-4" />
                 Send via WhatsApp
               </button>
-              <p className="mt-3 text-center text-[12px] text-white/35">
+              <p className="mt-3 text-center text-[12px] text-white/55">
                 No account needed. Opens in your WhatsApp with the message pre-filled.
               </p>
             </form>

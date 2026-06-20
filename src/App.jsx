@@ -1,3 +1,4 @@
+import { MotionConfig } from 'framer-motion'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import TrustStrip from './components/TrustStrip'
@@ -12,20 +13,25 @@ import FloatingWhatsApp from './components/FloatingWhatsApp'
 
 export default function App() {
   return (
-    <div className="relative">
-      <Navbar />
-      <main>
-        <Hero />
-        <TrustStrip />
-        <Statement />
-        <About />
-        <Categories />
-        <Brands />
-        <WhyUs />
-        <Contact />
-      </main>
-      <Footer />
-      <FloatingWhatsApp />
-    </div>
+    <MotionConfig reducedMotion="user">
+      <div className="relative">
+        <a href="#main" className="skip-link">
+          Skip to content
+        </a>
+        <Navbar />
+        <main id="main">
+          <Hero />
+          <TrustStrip />
+          <Statement />
+          <About />
+          <Categories />
+          <Brands />
+          <WhyUs />
+          <Contact />
+        </main>
+        <Footer />
+        <FloatingWhatsApp />
+      </div>
+    </MotionConfig>
   )
 }

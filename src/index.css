@@ -7,7 +7,7 @@
   --color-paper: #f6f5f0;
   --color-card: #ecebe2;
   --color-ink: #131311;
-  --color-muted: #6f6e66;
+  --color-muted: #63625a;
   --color-line: #e1e0d6;
   --color-accent: #ff5310;
   --color-accent-dark: #e04100;
@@ -36,6 +36,51 @@ body {
 ::selection {
   background: var(--color-accent);
   color: #fff;
+}
+
+/* Keyboard focus rings (mouse clicks stay clean via :focus-visible) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Skip-to-content link: hidden until focused */
+.skip-link {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 100;
+  transform: translateY(-150%);
+  border-radius: 9999px;
+  background: var(--color-ink);
+  padding: 0.65rem 1.25rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fff;
+  transition: transform 0.2s ease;
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* Respect reduced-motion: kill looping/scroll animation, keep instant reveals */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 ::-webkit-scrollbar {

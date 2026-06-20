@@ -6,10 +6,13 @@ function FooterMarquee() {
   return (
     /* Straddles the footer's top edge: top half over the light page,
        bottom half over the dark footer */
-    <div className="pointer-events-none absolute inset-x-0 top-0 -translate-y-1/2 overflow-hidden">
+    <div
+      aria-hidden="true"
+      className="pointer-events-none absolute inset-x-0 top-0 -translate-y-1/2 overflow-hidden"
+    >
       <div className="flex w-max animate-marquee">
         {[0, 1].map((copy) => (
-          <div key={copy} className="flex shrink-0 items-center" aria-hidden={copy === 1}>
+          <div key={copy} className="flex shrink-0 items-center">
             {row.map((_, i) => (
               <span
                 key={i}
@@ -64,7 +67,7 @@ export default function Footer() {
 
           {/* Explore */}
           <div>
-            <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-white/40">
+            <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-white/55">
               Explore
             </p>
             <nav className="mt-5 flex flex-col gap-3.5">
@@ -83,7 +86,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-white/40">
+            <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-white/55">
               Contact
             </p>
             <div className="mt-5 flex flex-col gap-3.5 text-[15px] text-white/75">
@@ -106,7 +109,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-[13px] text-white/40 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-[13px] text-white/55 sm:flex-row sm:items-center sm:justify-between">
           <span>
             © {new Date().getFullYear()} {BUSINESS.name}. All rights reserved.
           </span>
